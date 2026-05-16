@@ -280,8 +280,7 @@ bangalore_traffic_project/
 ├── 🐍 Python Scripts (root)
 │   ├── auto_collector.py          # Hourly TomTom poller (run continuously)
 │   ├── enrich_data.py             # Populate BMTC stops + accident records
-│   ├── fix_data_gaps.py           # Backfill weather + traffic history
-│   └── build_viz_notebook.py      # Programmatic notebook builder
+│   └── fix_data_gaps.py           # Backfill weather + traffic history
 │
 ├── 📊 Charts & Maps (charts/)
 │   ├── map_accident_hotspots.html
