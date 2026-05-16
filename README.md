@@ -271,17 +271,17 @@ The project generates three fully interactive HTML maps (open in any browser):
 ```
 bangalore_traffic_project/
 │
-├── 📓 Notebooks
-│   ├── 01_data_collection_merged.ipynb   # TomTom + Open-Meteo + GTFS ingestion
-│   ├── 02_data_cleaning_merged.ipynb     # Null handling, type casting, _clean tables
-│   ├── 03_analysis_merged.ipynb          # SQL queries → Pandas DataFrames → insights
-│   └── 05_visualization_improved.ipynb   # Refined chart aesthetics
+├── 📓 Notebooks (notebook/)
+│   ├── 01_data_collection.ipynb   # TomTom + Open-Meteo + GTFS ingestion
+│   ├── 02_data_cleaning.ipynb     # Null handling, type casting, _clean tables
+│   ├── 03_analysis.ipynb          # SQL queries → Pandas DataFrames → insights
+│   └── 04_visualization.ipynb     # Static charts (Matplotlib/Seaborn)
 │
-├── 🐍 Python Scripts
-│   ├── auto_collector.py        # Hourly TomTom poller (run continuously)
-│   ├── enrich_data.py           # Populate BMTC stops + accident records
-│   ├── fix_data_gaps.py         # Backfill weather + traffic history
-│   └── build_viz_notebook.py    # Programmatic notebook builder
+├── 🐍 Python Scripts (root)
+│   ├── auto_collector.py          # Hourly TomTom poller (run continuously)
+│   ├── enrich_data.py             # Populate BMTC stops + accident records
+│   ├── fix_data_gaps.py           # Backfill weather + traffic history
+│   └── build_viz_notebook.py      # Programmatic notebook builder
 │
 ├── 📊 Charts & Maps (charts/)
 │   ├── map_accident_hotspots.html
@@ -301,9 +301,9 @@ bangalore_traffic_project/
 │   └── chart_monsoon_trend.png
 │
 ├── 📄 Data
-│   ├── accidents_bangalore.csv  # Raw accident seed data
-│   ├── bmtc_gtfs.zip            # BMTC GTFS feed from DataMeet
-│   └── cache/                   # API response cache
+│   ├── accidents_bangalore.csv    # Raw accident seed data
+│   ├── bmtc_gtfs.zip              # BMTC GTFS feed
+│   └── cache/                     # API response cache
 │
 ├── requirements.txt
 └── README.md
@@ -323,19 +323,6 @@ bangalore_traffic_project/
 
 ```bash
 pip install -r requirements.txt
-```
-
-**`requirements.txt`:**
-```
-psycopg2-binary
-sqlalchemy
-pandas
-requests
-osmnx
-folium
-matplotlib
-seaborn
-geopandas
 ```
 
 ### Step 2 — Set Up the Database
@@ -368,19 +355,11 @@ python3 auto_collector.py   # Runs indefinitely, Ctrl+C to stop
 
 ### Step 4 — Run the Notebooks
 
-Open Jupyter and execute in order:
-
-```bash
-jupyter notebook
-```
-
 Run notebooks in sequence:
-1. `01_data_collection_merged.ipynb`
-2. `02_data_cleaning_merged.ipynb`
-3. `03_analysis_merged.ipynb`
-4. `04_visualization_merged.ipynb`
-
-Charts are saved to `charts/` automatically. Open any `.html` map in your browser.
+1. `notebook/01_data_collection.ipynb`
+2. `notebook/02_data_cleaning.ipynb`
+3. `notebook/03_analysis.ipynb`
+4. `notebook/04_visualization.ipynb`
 
 ---
 
@@ -401,26 +380,22 @@ Charts are saved to `charts/` automatically. Open any `.html` map in your browse
 
 ## Limitations & Future Work
 
-### Current Limitations
-
-- **Live data depth:** The TomTom free tier doesn't provide historical data — only real-time snapshots. Extended historical analysis used a statistically modeled backfill.
-- **Accident data:** OpenCity/data.gov.in records are sparse. The 250-record dataset is partially synthetic, built to reflect known Bangalore hotspot distributions.
-- **No ML models:** The project is intentionally EDA-only for interpretability. Predictions (e.g., "what will congestion be at 6 PM tomorrow?") are out of scope.
-
-### Future Improvements
-
-- [ ] **Deploy `auto_collector.py` as a scheduled cron job** to accumulate 6–12 months of real live data
-- [ ] **Add NAMMA Metro ridership data** to assess metro's congestion relief impact on adjacent roads
-- [ ] **Build a Power BI / Streamlit dashboard** for real-time interactive monitoring
-- [ ] **Integrate BBMP signal timing data** to validate the signal re-timing recommendations
-- [ ] **Add time-series forecasting** (Prophet / ARIMA) once sufficient live data is collected
-- [ ] **Secrets management:** Migrate all credentials to environment variables or a `.env` file
+- **Live data depth:** Extended historical analysis used a statistically modeled backfill.
+- **Accident data:** The 250-record dataset is partially synthetic to reflect known distributions.
+- **No ML models:** The project is intentionally EDA-only for interpretability.
 
 ---
 
 ## Author
 
 **Rishabh Sharma**
-> email:rishabhkd28@gmail.com
+> Data Analyst & Engineer
+
+📫 **Connect with me:**
+- **Email:** [rishabhkd28@gmail.com](mailto:rishabhkd28@gmail.com)
+- **GitHub:** [@Rishabhkd-28](https://github.com/Rishabhkd-28)
+- **LinkedIn:** [Rishabh Sharma](https://www.linkedin.com/in/rishabh-sharma-ba98b0222/)
+
+---
 
 *This project is for educational and portfolio purposes. Data used from TomTom API, Open-Meteo, BMTC GTFS (DataMeet), and public government datasets.*
