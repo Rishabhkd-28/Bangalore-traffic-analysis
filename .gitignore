@@ -14,3 +14,4 @@ ENV/
 # Project specific
 cache/
 .DS_Store
+.env

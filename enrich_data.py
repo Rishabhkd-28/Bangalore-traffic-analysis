@@ -1,11 +1,15 @@
-import zipfile, io, os, random
-import pandas as pd
+import os
+import zipfile
+import random
 import numpy as np
+import pandas as pd
 from datetime import date, timedelta
-from sqlalchemy import create_engine, text
+from sqlalchemy import create_engine
+from dotenv import load_dotenv
 
-DB_URL = ("postgresql+psycopg2://postgres:prabhupada"
-          "@localhost:5432/bangalore_traffic")
+load_dotenv()
+DB_URL = os.getenv("DB_URL", "postgresql+psycopg2://postgres:prabhupada@localhost:5432/bangalore_traffic")
+
 engine = create_engine(DB_URL)
 
 def enrich_bmtc_stops():
