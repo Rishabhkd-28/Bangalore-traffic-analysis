@@ -1,0 +1,9 @@
+psycopg2-binary
+sqlalchemy
+pandas
+requests
+osmnx
+folium
+matplotlib
+seaborn
+geopandas

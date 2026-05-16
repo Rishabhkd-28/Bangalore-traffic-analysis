@@ -1,0 +1,11 @@
+date,time,location,latitude,longitude,severity,vehicles,casualties,violation_type,fatalities,injuries
+2024-01-15,08:30:00,"Silk Board Junction",12.9176,77.6227,"High",2,1,"Speeding",0,1
+2024-02-10,18:45:00,"Marathahalli Bridge",12.9571,77.7006,"Medium",3,0,"Tailgating",0,0
+2024-03-05,09:15:00,"Hebbal Flyover",13.0450,77.5943,"Critical",2,2,"Drunk Driving",1,1
+2024-04-22,17:20:00,"KR Puram",13.0035,77.6945,"Low",2,0,"Lane Violation",0,0
+2024-05-18,21:00:00,"Electronic City Toll",12.8399,77.6772,"High",1,2,"Speeding",0,2
+2024-06-30,07:50:00,"Whitefield Main Road",12.9698,77.7499,"Medium",2,1,"Signal Jumping",0,1
+2024-07-12,19:10:00,"MG Road",12.9756,77.6090,"Low",2,0,"Illegal U-Turn",0,0
+2024-08-05,14:30:00,"Koramangala 5th Block",12.9352,77.6245,"High",2,1,"Speeding",0,1
+2024-09-14,08:15:00,"Bannerghatta Road",12.8995,77.5994,"Medium",3,0,"Tailgating",0,0
+2024-10-02,18:00:00,"Outer Ring Road (Bellandur)",12.9373,77.6746,"Critical",4,3,"Drunk Driving",1,2
